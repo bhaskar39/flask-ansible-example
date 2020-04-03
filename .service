@@ -3,11 +3,11 @@ Description=Gunicorn instance to serve {{ app_name }}
 After=network.target
 
 [Service]
-User={{ ansible_ssh_user }}
+User=azure-admin
 Group=www-data
-WorkingDirectory=/home/{{ ansible_ssh_user }}/{{ app_name }}
-Environment="PATH=/home/{{ ansible_ssh_user }}/{{ app_name }}/env/bin"
-ExecStart=/home/{{ ansible_ssh_user }}/{{ app_name }}/env/bin/gunicorn --workers 3 --bind unix:{{ app_name }}.sock -m 007 wsgi:app
+WorkingDirectory=/home/azure-admin/flask-ansible-example
+Environment="PATH=/home/azure-admin/flask-ansible-example/env/bin"
+ExecStart=/home/azure-admin/flask-ansible-example/env/bin/gunicorn --workers 3 --bind unix:/home/azure-admin/flask-ansible-example.sock -m 007 wsgi:app
 
 [Install]
 WantedBy=multi-user.target
