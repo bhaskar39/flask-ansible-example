@@ -7,7 +7,7 @@ User=azure-admin
 Group=www-data
 WorkingDirectory=/home/azure-admin/flask-ansible-example
 Environment="PATH=/home/azure-admin/flask-ansible-example/env/bin"
-ExecStart=/home/azure-admin/flask-ansible-example/env/bin/gunicorn --workers 3 --bind unix:/home/azure-admin/flask-ansible-example.sock -m 007 wsgi:app
+ExecStart=/home/azure-admin/flask-ansible-example/env/bin/gunicorn --workers 3 --bind unix:flask-ansible-example.sock -m 007 wsgi:app
 
 [Install]
 WantedBy=multi-user.target
